@@ -1,5 +1,10 @@
-package com.example.myandroidapp
+package ke.co.Androidapp2
 
-data class loginResponse(
-    @serialized
+import com.example.myandroidapp.SerializedName
+import com.google.gson.annotations.SerializedName
+
+data class LoginResponse(
+    @SerializedName("access_token") var accessToken: String,
+    @SerializedName("message") var message: String
+)
 )
