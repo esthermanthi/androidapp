@@ -14,7 +14,7 @@ class splashActivity : AppCompatActivity() {
         val accessToken=sharedpreferences.getString(key:"ACCESS_TOKEN_KEY",defValue:"")
 
         if (accessToken.isNullOrEmpty()){
-            val intent(baseContext,MainActivity::class.java)
+            val intent(baseContext;MainActivity::class.java)
             startActivity()
         }else {
             val intent = Intent(baseContext, courseActivity::class.java)

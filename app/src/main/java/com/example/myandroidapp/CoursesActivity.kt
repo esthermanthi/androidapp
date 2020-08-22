@@ -14,9 +14,16 @@ import com.example.myandroidapp.Response
 import javax.security.auth.callback.Callback
 
 private var Nothing?.layoutManager:
-    get() {}
-    set() {}
-private var Any.courses: Any
+    get()
+
+class get {
+
+}
+
+{}
+    set () {}
+    private var Any.courses: Any
+
     get() {}
     set(value) {}
 
@@ -30,8 +37,10 @@ class CoursesActivity : AppCompatActivity() {
             Course("3", "Database", "DB 304", "Kamwe Wema", "Database administration and development"),
             Course("4", "Network", "DIS 202", "Betty Crocker", "Netwok Config for modern apps")
         )
-        rvCourses.layoutManager = LinearLayoutManager(baseContext)
-        rvCourses.adapter = CoursesAdapter()
+        val rvCourses = null
+        rvCourses.layoutManager = get  LinearLayoutManager(baseContext)
+        val rvCoursesdapter = null
+        arrayOf(rvCoursesdapter) = <CoursesAdapter()>
 
         fetchCourses()
     }

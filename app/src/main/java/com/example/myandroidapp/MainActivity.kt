@@ -1,5 +1,6 @@
 package com.example.myandroidapp
 
+import ApiInterface
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loginUser(requestBody: RequestBody){
-        val apiClient = ApiClient.buildService(ApiInterface::class.java)
+        val apiClient = ApiClient.Student(ApiInterface::class.java)
         val loginCall = apiClient.loginStudent(requestBody)
 
         loginCall.enqueue(object :Callback<LoginResponse> {
@@ -66,6 +67,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+}
+
+private fun Any.build(): RequestBody {
+
 }
 
 class CoursesActivity {
