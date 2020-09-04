@@ -1,6 +1,5 @@
 package com.example.myandroidapp
 
-import ApiInterface
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +10,7 @@ import android.widget.Toast
 import com.example.myandroidappimport.ApiInterface
 import javax.security.auth.callback.Callback
 
-private val Any.message: Context?
+val Any.message: Context?
     get() {}
 private val Any.accessToken: String?
     get() {}
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(baseContext, CoursesActivity::class.java))
 
             val requestBody = MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
+                .setType()
                 .addFormDataPart("email", email)
                 .addFormDataPart("password", password)
                 .build()
@@ -41,15 +40,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loginUser(requestBody: RequestBody){
-        val apiClient = ApiClient.Student(ApiInterface::class.java)
-        val loginCall = apiClient.loginStudent(requestBody)
+        val apiClient = ApiClient.Student()
+        val loginCall = apiClient.loginStudent()
 
         loginCall.enqueue(object :Callback<LoginResponse> {
             fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
 
-            fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+            fun onResponse(call: Call<LoginResponse>, response: Response) {
                 if (response.isSuccessful){
                     Toast.makeText(baseContext, response.body()?.message, Toast.LENGTH_LONG).show()
                     var accessToken = response.body()?.accessToken

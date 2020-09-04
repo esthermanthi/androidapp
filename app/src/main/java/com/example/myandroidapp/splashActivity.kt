@@ -9,7 +9,7 @@ class splashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         val preferenceManager = null
-        val sharedpreferences=preferenceManager.get(baseContext)
+        val sharedpreferences= preferenceManager?.get(baseContext)
         val key = null
         val accessToken=sharedpreferences.getString(key:"ACCESS_TOKEN_KEY",defValue:"")
 

@@ -9,6 +9,7 @@ data class Course(
     var courseCode: String,
     var instructor: String,
     var description: String
+    @Entity(tableName)
     @SerializedName ("course_id") var courseId: String,
     @SerializedName("course_name") var courseName: String,
     @SerializedName("course_code") var courseCode: String,
